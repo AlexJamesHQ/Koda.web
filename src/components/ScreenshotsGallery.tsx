@@ -132,27 +132,16 @@ export const ScreenshotsGallery: React.FC<ScreenshotsGalleryProps> = ({ lang }) 
       {/* Full Resolution Modal Lightbox */}
       {activeModalIdx !== null && activeModalIdx < filteredScreenshots.length && (
         <div
-          className="fixed inset-0 z-[10010] bg-black/95 backdrop-blur-md flex flex-col items-center justify-center p-4 overflow-y-auto"
+          className="fixed inset-0 z-[10010] bg-black/95 backdrop-blur-md flex flex-col items-center justify-center p-2 sm:p-6 overflow-y-auto min-h-screen"
           onClick={() => setActiveModalIdx(null)}
         >
           {/* Lightbox Shell */}
           <div
-            className="relative w-full max-w-lg flex flex-col items-center justify-center my-auto py-12"
+            className="relative w-full max-w-xs sm:max-w-lg flex flex-col items-center justify-center my-auto py-2 sm:py-6"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close Button */}
-            <div className="w-full flex justify-end mb-3">
-              <button
-                onClick={() => setActiveModalIdx(null)}
-                className="w-11 h-11 rounded-full bg-[#FFE600] text-black border-[3px] border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center transition-all cursor-pointer z-30"
-                title="Close"
-              >
-                <X className="w-5 h-5 font-black text-black" />
-              </button>
-            </div>
-
             {/* Main Showcase Row (Desktop Side Buttons + Phone Frame) */}
-            <div className="flex items-center justify-center gap-4 md:gap-6 w-full relative">
+            <div className="flex items-center justify-center gap-3 md:gap-6 w-full relative">
               {/* Desktop Prev Button */}
               <button
                 onClick={(e) => {
@@ -161,19 +150,19 @@ export const ScreenshotsGallery: React.FC<ScreenshotsGalleryProps> = ({ lang }) 
                     prev !== null && prev > 0 ? prev - 1 : filteredScreenshots.length - 1
                   );
                 }}
-                className="hidden md:flex w-14 h-14 rounded-full bg-white text-black border-[3px] border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] items-center justify-center transition-all cursor-pointer flex-shrink-0 z-20"
+                className="hidden md:flex w-12 h-12 md:w-14 md:h-14 rounded-full bg-white text-black border-[3px] border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] items-center justify-center transition-all cursor-pointer flex-shrink-0 z-20"
                 title="Previous Image"
               >
-                <ChevronLeft className="w-7 h-7 text-black font-black" />
+                <ChevronLeft className="w-6 h-6 md:w-7 md:h-7 text-black font-black" />
               </button>
 
               {/* Large Image Showcase Frame */}
-              <div className="relative w-full max-w-xs sm:max-w-sm aspect-[9/19] max-h-[75vh] flex items-center justify-center bg-white rounded-[26px] border-[4px] border-black overflow-hidden shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+              <div className="relative w-[210px] xs:w-[240px] sm:w-[270px] md:w-[300px] aspect-[9/19] max-h-[58vh] sm:max-h-[65vh] flex items-center justify-center bg-white rounded-[22px] sm:rounded-[26px] border-[3px] sm:border-[4px] border-black overflow-hidden shadow-[5px_5px_0px_0px_rgba(0,0,0,1)]">
                 <img
                   src={filteredScreenshots[activeModalIdx].url}
                   alt={filteredScreenshots[activeModalIdx].title}
                   referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover object-top rounded-[24px] scale-[1.05]"
+                  className="w-full h-full object-cover object-top rounded-[19px] sm:rounded-[22px]"
                 />
               </div>
 
@@ -185,15 +174,15 @@ export const ScreenshotsGallery: React.FC<ScreenshotsGalleryProps> = ({ lang }) 
                     prev !== null && prev < filteredScreenshots.length - 1 ? prev + 1 : 0
                   );
                 }}
-                className="hidden md:flex w-14 h-14 rounded-full bg-white text-black border-[3px] border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] items-center justify-center transition-all cursor-pointer flex-shrink-0 z-20"
+                className="hidden md:flex w-12 h-12 md:w-14 md:h-14 rounded-full bg-white text-black border-[3px] border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] items-center justify-center transition-all cursor-pointer flex-shrink-0 z-20"
                 title="Next Image"
               >
-                <ChevronRight className="w-7 h-7 text-black font-black" />
+                <ChevronRight className="w-6 h-6 md:w-7 md:h-7 text-black font-black" />
               </button>
             </div>
 
             {/* Bottom Controls / Mobile Navigation & Counter */}
-            <div className="flex items-center justify-between w-full max-w-xs sm:max-w-sm mt-5 px-1 gap-3">
+            <div className="flex items-center justify-between w-full max-w-[260px] xs:max-w-[290px] sm:max-w-sm mt-3 sm:mt-5 px-1 gap-2 sm:gap-3">
               <button
                 onClick={(e) => {
                   e.stopPropagation();
@@ -201,9 +190,9 @@ export const ScreenshotsGallery: React.FC<ScreenshotsGalleryProps> = ({ lang }) 
                     prev !== null && prev > 0 ? prev - 1 : filteredScreenshots.length - 1
                   );
                 }}
-                className="px-4 py-2.5 rounded-xl bg-white text-black border-[3px] border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] font-sans font-black text-xs uppercase flex items-center gap-1 cursor-pointer transition-all md:hidden"
+                className="px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-white text-black border-[2.5px] sm:border-[3px] border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] font-sans font-black text-[11px] sm:text-xs uppercase flex items-center gap-1 cursor-pointer transition-all md:hidden"
               >
-                <ChevronLeft className="w-4 h-4 text-black font-black" />
+                <ChevronLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-black font-black" />
                 <span>Prev</span>
               </button>
 
@@ -212,10 +201,10 @@ export const ScreenshotsGallery: React.FC<ScreenshotsGalleryProps> = ({ lang }) 
                   e.stopPropagation();
                   setActiveModalIdx(null);
                 }}
-                className="mx-auto px-5 py-2.5 rounded-xl bg-[#FFE600] text-black border-[3px] border-black font-sans font-black text-xs uppercase shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1.5 cursor-pointer transition-all"
+                className="mx-auto px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-[#FFE600] text-black border-[2.5px] sm:border-[3px] border-black font-sans font-black text-[11px] sm:text-xs uppercase shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1.5 cursor-pointer transition-all"
                 title="Close Modal"
               >
-                <X className="w-4 h-4 text-black font-black" />
+                <X className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-black font-black" />
                 <span>Close</span>
               </button>
 
@@ -226,10 +215,10 @@ export const ScreenshotsGallery: React.FC<ScreenshotsGalleryProps> = ({ lang }) 
                     prev !== null && prev < filteredScreenshots.length - 1 ? prev + 1 : 0
                   );
                 }}
-                className="px-4 py-2.5 rounded-xl bg-white text-black border-[3px] border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] font-sans font-black text-xs uppercase flex items-center gap-1 cursor-pointer transition-all md:hidden"
+                className="px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-white text-black border-[2.5px] sm:border-[3px] border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] font-sans font-black text-[11px] sm:text-xs uppercase flex items-center gap-1 cursor-pointer transition-all md:hidden"
               >
                 <span>Next</span>
-                <ChevronRight className="w-4 h-4 text-black font-black" />
+                <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-black font-black" />
               </button>
             </div>
           </div>
