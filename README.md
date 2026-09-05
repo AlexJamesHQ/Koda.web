@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="icon.svg" width="120" alt="Koda Logo"/>
+  <img src="https://github.com/user-attachments/assets/711c78ad-1c4c-4755-a5eb-1d5b03bef788" width="120" alt="Koda Logo"/>
 </p>
 
 <h1 align="center">Koda</h1>
