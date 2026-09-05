@@ -1,0 +1,8 @@
+{
+  "name": "Koda",
+  "description": "Modern Android music and video player powered by YouTube Music with Material 3 Expressive, 8 player styles, dual music/video playback, and 3D Voxel Soundscape",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Koda — Modern Android Music & Video Player</title>
+    <meta name="description" content="A modern Android music and video player powered by YouTube Music, built ground-up on Material 3 Expressive with 8 player styles and zero required login." />
+    <meta property="og:title" content="Koda — Modern Android Music & Video Player" />
+    <meta property="og:description" content="A modern Android music and video player powered by YouTube Music, built ground-up on Material 3 Expressive." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+              display: ['Outfit', 'sans-serif'],
+              mono: ['"JetBrains Mono"', 'monospace'],
+            },
+            colors: {
+              koda: {
+                purple: '#6750A4',
+                purpleLight: '#EADDFF',
+                purpleDark: '#21005D',
+                mint: '#1B6C3A',
+                mintLight: '#D1E8D5',
+                peach: '#E06D53',
+                amoled: '#0a0a0d',
+                surface: '#1E1B26',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="/index.css">
+  </head>
+  <body class="bg-[#0f0e13] text-gray-100 antialiased selection:bg-purple-500 selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
