@@ -207,9 +207,17 @@ export const ScreenshotsGallery: React.FC<ScreenshotsGalleryProps> = ({ lang }) 
                 <span>Prev</span>
               </button>
 
-              <span className="mx-auto px-4 py-2 rounded-xl bg-[#FFE600] text-black border-[3px] border-black font-mono font-black text-xs shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
-                {activeModalIdx + 1} / {filteredScreenshots.length}
-              </span>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setActiveModalIdx(null);
+                }}
+                className="mx-auto px-5 py-2.5 rounded-xl bg-[#FFE600] text-black border-[3px] border-black font-sans font-black text-xs uppercase shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1.5 cursor-pointer transition-all"
+                title="Close Modal"
+              >
+                <X className="w-4 h-4 text-black font-black" />
+                <span>Close</span>
+              </button>
 
               <button
                 onClick={(e) => {
